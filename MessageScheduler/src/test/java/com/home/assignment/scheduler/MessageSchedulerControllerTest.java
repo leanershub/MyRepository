@@ -41,6 +41,10 @@ public class MessageSchedulerControllerTest {
 	@MockBean
 	private MessageSchedulerService messageSchedulerService;
 	
+	/**
+	 * To test the end point
+	 * @throws Exception
+	 */
 	@Test
 	public void testScheduleMessage() throws Exception{
 		String URI = "/schedule/message?scheduledDate=1625841660000&message=Awsome work2 43";
