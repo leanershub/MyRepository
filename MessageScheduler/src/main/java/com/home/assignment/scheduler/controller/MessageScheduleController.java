@@ -38,7 +38,7 @@ public class MessageScheduleController {
 	/**
 	 * End point to schedule message. 
 	 * This method receives a message 
-	 * and specified time at which the message should be scheduled. Will add the message to scheduler.
+	 * and specified time in milliseconds at which the message should be scheduled. Will add the message to scheduler.
 	 * Scheduler will send the message at the specified time
 	 * @param scheduledDate
 	 * @param message
