@@ -36,7 +36,10 @@ public class MessageScheduleController {
 	MessageSchedulerService messageSchedulerService;
 
 	/**
-	 * End point to schedule message
+	 * End point to schedule message. 
+	 * This method receives a message 
+	 * and specified time at which the message should be scheduled. Will add the message to scheduler.
+	 * Scheduler will send the message at the specified time
 	 * @param scheduledDate
 	 * @param message
 	 * @return
@@ -46,6 +49,7 @@ public class MessageScheduleController {
 	@PostMapping(path="/schedule/message")
 	public ResponseEntity<Object> scheduleMessage(@RequestParam long scheduledDate,@RequestParam String message) throws SchedulerException, InvalidDataException{
 		logger.info("Inside scheduleMessage Date = {},Message = {}",scheduledDate,message);
+		// validate the scheduled time
 		if(!MessageSchedulerHelper.validateDate(scheduledDate)){
 			throw new InvalidDateException("Invalid Date");
 		}
