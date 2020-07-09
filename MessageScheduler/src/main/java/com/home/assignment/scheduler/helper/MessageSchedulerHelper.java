@@ -19,7 +19,7 @@ public class MessageSchedulerHelper {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MessageSchedulerHelper.class);
 	/**
-	 * Method to validate given time
+	 * Method to validate given time. The scheduled time should be future date
 	 * @param scheduledDate
 	 * @return
 	 * @throws InvalidDataException

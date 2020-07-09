@@ -39,7 +39,10 @@ public class MessageScheduleController {
 	 * End point to schedule message. 
 	 * This method receives a message 
 	 * and specified time in milliseconds at which the message should be scheduled. Will add the message to scheduler.
-	 * Scheduler will send the message at the specified time
+	 * Scheduler will send the message at the specified time.
+	 * This method also validates the scheduled time.It should be a future date.
+	 * In case of invalid date it will throw InvalidDateException which will be handled by MessageSchedulerExceptionHandler
+	 * and will send back error response with status code 400 ie Bad Request
 	 * @param scheduledDate
 	 * @param message
 	 * @return
@@ -49,7 +52,6 @@ public class MessageScheduleController {
 	@PostMapping(path="/schedule/message")
 	public ResponseEntity<Object> scheduleMessage(@RequestParam long scheduledDate,@RequestParam String message) throws SchedulerException, InvalidDataException{
 		logger.info("Inside scheduleMessage Date = {},Message = {}",scheduledDate,message);
-		// validate the scheduled time
 		if(!MessageSchedulerHelper.validateDate(scheduledDate)){
 			throw new InvalidDateException("Invalid Date");
 		}
