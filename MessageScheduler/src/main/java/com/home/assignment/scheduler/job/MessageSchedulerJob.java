@@ -24,6 +24,7 @@ public class MessageSchedulerJob extends QuartzJobBean{
 	@Override
 	protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
 		String message =  (String) context.getJobDetail().getJobDataMap().get("message");
+		// print the message when the scheduler runs
 		logger.info(message);
 	}
 
